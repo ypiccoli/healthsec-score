@@ -52,4 +52,5 @@ jobs:
 
       - name: Confere cabeçalhos de segurança no build
         if: steps.app.outputs.existe == 'true'
-        run: test -f dist/_headers || { echo "dist/_headers não encontrado: public/_headers foi removido?"; exit 1; }
+        run: |
+          test -f dist/_headers || { echo "dist/_headers não encontrado. O arquivo public/_headers foi removido?"; exit 1; }
