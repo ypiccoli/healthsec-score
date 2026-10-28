@@ -5,6 +5,9 @@ updates:
     schedule:
       interval: weekly
       day: monday
+    # Espera 7 dias depois de uma versão sair, para não pegar pacote comprometido logo no lançamento.
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 5
     groups:
       dependencias:
@@ -17,6 +20,8 @@ updates:
     schedule:
       interval: weekly
       day: monday
+    cooldown:
+      default-days: 7
     groups:
       actions:
         patterns: ["*"]
