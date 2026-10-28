@@ -29,11 +29,17 @@ src/
   scoring/        # funções puras de cálculo + testes *.test.ts (Motor de scoring)
   respostas/      # salvar/carregar localStorage e arquivo .json (Lógica e integração)
   componentes/    # componentes compartilhados entre telas
-public/
-  _headers        # cabeçalhos de segurança do Cloudflare Pages: não remover
+index.html        # contém a <meta> de CSP (docs/seguranca.md): não remover
+vite.config.ts    # base: "/healthsec-score/" (endereço do GitHub Pages)
 ```
 
-Ao rodar `npm create vite@latest` neste diretório, escolha **ignorar os arquivos existentes**. Não apagar `public/_headers`, `docs/` nem `.github/`.
+Ao rodar `npm create vite@latest` neste diretório, escolha **ignorar os arquivos existentes**. Não apagar `docs/` nem `.github/`.
+
+O site é publicado no GitHub Pages em `https://ypiccoli.github.io/healthsec-score/`. Por isso:
+
+- o `vite.config.ts` precisa de `base: "/healthsec-score/"`;
+- o `index.html` precisa das `<meta>` de CSP e de referrer que estão em `docs/seguranca.md`. O CI falha sem elas;
+- a navegação entre telas é por estado (ex.: `Stepper` do Mantine), sem rotas de URL. Se algum dia precisar de rota, use `HashRouter`, porque o Pages dá 404 ao recarregar uma rota de SPA.
 
 ## Regras de código
 
@@ -49,7 +55,7 @@ Ao rodar `npm create vite@latest` neste diretório, escolha **ignorar os arquivo
 - Nunca usar `dangerouslySetInnerHTML`, `eval`, `new Function` nem montar HTML com string.
 - Nunca inserir segredo, token, chave, senha ou URL interna no código, em teste ou em exemplo.
 - Dados de exemplo e de teste são **sempre fictícios**. Nada de nome de instituição real, paciente, CPF, CNPJ ou e-mail real.
-- Não adicionar script inline nem recurso de CDN externo. A CSP em `public/_headers` bloqueia, e afrouxar a CSP exige revisão de segurança.
+- Não adicionar script inline nem recurso de CDN externo. A CSP no `index.html` bloqueia, e afrouxar a CSP exige revisão de segurança.
 - Não usar o `ColorSchemeScript` do Mantine (é script inline). Tema claro fixo no MVP.
 - Este repositório é **público** e é um trabalho acadêmico. Não citar empresas, clientes ou ambientes reais de nenhum integrante.
 

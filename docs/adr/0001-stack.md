@@ -14,7 +14,7 @@ O grupo tem níveis diferentes de experiência com programação, e várias pess
 - **Zod** para validar o `questionario.json` e o arquivo de respostas carregado pelo usuário.
 - **Recharts** para os gráficos do resultado (barras e radar).
 - **Vitest** para os testes, principalmente do motor de scoring.
-- **Cloudflare Pages** para hospedagem gratuita (`*.pages.dev`), com publicação automática a cada merge na `main`.
+- ~~**Cloudflare Pages** para hospedagem~~. Substituída pela [ADR 0003](0003-github-pages.md): GitHub Pages.
 - **GitHub Actions** para CI; **Gitleaks**, **Semgrep** e **Dependabot** para as verificações de segurança.
 
 ## Consequências
