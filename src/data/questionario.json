@@ -1,0 +1,23 @@
+{
+  "versao": "0.0.0-exemplo",
+  "dominios": [
+    {
+      "id": "exemplo",
+      "nome": "Domínio de exemplo",
+      "peso": 1,
+      "perguntas": [
+        {
+          "id": "exemplo-1",
+          "texto": "Pergunta de exemplo. Substituir pelo conteúdo definido pelo grupo.",
+          "peso": 1,
+          "opcoes": [
+            { "id": "nao", "texto": "Não", "valor": 0 },
+            { "id": "parcial", "texto": "Parcialmente", "valor": 0.5 },
+            { "id": "sim", "texto": "Sim", "valor": 1 }
+          ],
+          "recomendacao": "Recomendação de exemplo."
+        }
+      ]
+    }
+  ]
+}
