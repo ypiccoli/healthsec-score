@@ -1,0 +1,59 @@
+{
+  "dominios": [
+    {
+      "id": "backup",
+      "nome": "Backup e continuidade",
+      "perguntas": [
+        {
+          "id": "backup-01",
+          "texto": "A instituição testa a restauração dos backups?",
+          "peso": 3,
+          "opcoes": [
+            { "texto": "Não", "valor": 0 },
+            { "texto": "Às vezes", "valor": 1 },
+            { "texto": "Sim, com rotina definida", "valor": 2 }
+          ],
+          "recomendacao": "Testar a restauração ao menos uma vez por trimestre."
+        },
+        {
+          "id": "backup-02",
+          "texto": "Existe uma cópia dos backups guardada fora da rede principal?",
+          "peso": 2,
+          "opcoes": [
+            { "texto": "Não", "valor": 0 },
+            { "texto": "Não sei", "valor": 0 },
+            { "texto": "Sim", "valor": 2 }
+          ],
+          "recomendacao": "Manter ao menos uma cópia dos backups desconectada da rede ou em nuvem separada."
+        }
+      ]
+    },
+    {
+      "id": "acessos",
+      "nome": "Controle de acesso",
+      "perguntas": [
+        {
+          "id": "acessos-01",
+          "texto": "Os sistemas com dados de pacientes exigem um segundo fator de autenticação?",
+          "peso": 3,
+          "opcoes": [
+            { "texto": "Não", "valor": 0 },
+            { "texto": "Em alguns sistemas", "valor": 1 },
+            { "texto": "Em todos", "valor": 2 }
+          ],
+          "recomendacao": "Ativar o segundo fator de autenticação, começando pelo e-mail e pelo sistema de prontuário."
+        },
+        {
+          "id": "acessos-02",
+          "texto": "Cada pessoa tem o próprio usuário, sem logins compartilhados?",
+          "peso": 1,
+          "opcoes": [
+            { "texto": "Não", "valor": 0 },
+            { "texto": "Sim", "valor": 2 }
+          ],
+          "recomendacao": "Criar um usuário por pessoa e desativar os logins compartilhados."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: Tarefa
+description: Uma entrega do quadro do MVP
+labels: ["tarefa"]
+body:
+  - type: textarea
+    id: oque
+    attributes:
+      label: O que fazer
+      description: O resultado esperado, em poucas linhas.
+    validations:
+      required: true
+  - type: dropdown
+    id: frente
+    attributes:
+      label: Frente
+      options:
+        - Front e UI/UX
+        - Lógica e integração
+        - Dados do questionário
+        - Motor de scoring
+        - Resultado e relatório
+        - Infra, DevSecOps e segurança
+        - Gestão
+        - Processos e qualidade
+    validations:
+      required: true
+  - type: textarea
+    id: pronto
+    attributes:
+      label: Pronto quando
+      description: Como saber que a tarefa terminou.
+    validations:
+      required: true

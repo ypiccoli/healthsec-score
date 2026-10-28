@@ -1,0 +1,12 @@
+# Quem é chamado automaticamente para revisar cada parte.
+# TODO: trocar pelos usuários do GitHub do grupo quando os convites forem aceitos.
+#   Código em geral: Gabriel
+#   Segurança, publicação e conteúdo do questionário: Ygor
+
+*                         @ypiccoli
+
+/.github/                 @ypiccoli
+/public/_headers          @ypiccoli
+/docs/seguranca.md        @ypiccoli
+/docs/questionario-formato.md @ypiccoli
+/src/questionario/        @ypiccoli
