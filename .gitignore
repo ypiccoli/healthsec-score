@@ -25,7 +25,6 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Cloudflare
-.wrangler/
 
+# TypeScript
 *.tsbuildinfo

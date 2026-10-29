@@ -13,32 +13,44 @@ O MVP não tem servidor, banco nem login ([ADR 0002](adr/0002-sem-backend.md)). 
 | Controle | Onde | O que faz |
 |---|---|---|
 | Proteção da `main` | Ruleset do GitHub | Exige PR com aprovação e verificações verdes. Bloqueia push direto e force push. |
+| Publicação controlada | Job `deploy` no `ci.yml` | Só publica a partir da `main` e depois do CI passar, sem token. |
 | Gitleaks | `.github/workflows/security.yml` | Procura segredos em todo o histórico, a cada PR e push. |
 | Secret scanning + push protection | Configuração do repo | O GitHub bloqueia o push que contém um token conhecido. |
 | Semgrep | `.github/workflows/security.yml` | Análise estática (regras de JS/TS e React). Resultados na aba Security. |
 | Dependabot | `.github/dependabot.yml` | Alerta e abre PR para dependências vulneráveis ou desatualizadas. |
-| CSP e cabeçalhos | `public/_headers` | Restringem o que o navegador carrega e executa. |
+| CSP | `<meta>` no `index.html` | Restringe o que o navegador carrega e executa. |
 | Validação com Zod | `src/questionario/`, `src/respostas/` | Rejeita JSON fora do formato antes de usar. |
 | Regras de código | `AGENTS.md` | Proíbem `dangerouslySetInnerHTML`, `eval`, script inline e chamada de rede. |
 
-## Cabeçalhos HTTP (`public/_headers`)
+## CSP e cabeçalhos
 
-O Cloudflare Pages lê esse arquivo e aplica os cabeçalhos em todas as páginas.
+O GitHub Pages não deixa configurar cabeçalhos HTTP ([ADR 0003](adr/0003-github-pages.md)). A proteção vai em `<meta>` dentro do `<head>` do `index.html`. Cole este bloco logo depois da `<meta charset>`:
 
-| Cabeçalho | Valor | Por quê |
-|---|---|---|
-| `Content-Security-Policy` | `default-src 'self'`, `script-src 'self'`, `style-src 'self' 'unsafe-inline'`, `img-src 'self' data: blob:`, `connect-src 'self'`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`, `frame-ancestors 'none'` | Só carrega o que vem do próprio site. Bloqueia script injetado e o uso do site dentro de iframe. |
-| `X-Content-Type-Options` | `nosniff` | O navegador não "adivinha" o tipo de arquivo. |
-| `Referrer-Policy` | `no-referrer` | Não vaza a URL para outros sites. |
-| `Permissions-Policy` | câmera, microfone, geolocalização etc. desligados | O site não precisa desses recursos. |
-| `Cross-Origin-Opener-Policy` | `same-origin` | Isola a janela de outras origens. |
+```html
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+/>
+<meta name="referrer" content="no-referrer" />
+```
 
-**Sobre `style-src 'unsafe-inline'`:** o Mantine e o Recharts aplicam estilos por atributo `style`. Liberar estilo inline é um risco baixo, já que scripts continuam bloqueados. Revisar se a stack mudar.
+O CI confere que a CSP está no `dist/index.html` e falha se alguém remover.
+
+| Diretiva | Por quê |
+|---|---|
+| `default-src 'self'`, `script-src 'self'` | Só carrega e executa o que vem do próprio site. Script injetado não roda. |
+| `style-src 'self' 'unsafe-inline'` | O Mantine e o Recharts aplicam estilos por atributo `style`. O risco é baixo, porque scripts continuam bloqueados. |
+| `img-src 'self' data: blob:` | Ícones embutidos e gráficos exportados. |
+| `connect-src 'self'` | Nenhuma chamada de rede para fora. |
+| `object-src 'none'`, `base-uri 'self'`, `form-action 'self'` | Fecham caminhos comuns de injeção. |
+| `referrer: no-referrer` | Não vaza a URL para outros sites. |
+
+**O que fica de fora, e por quê:** `frame-ancestors`/`X-Frame-Options` (proteção contra iframe), `Permissions-Policy` e `Cross-Origin-Opener-Policy` só funcionam como cabeçalho HTTP. O site pode ser embutido em iframe de outro domínio. Esse risco foi aceito porque o site não tem login nem ação sensível. HTTPS e HSTS já vêm do `github.io`.
 
 **Para não quebrar a CSP:**
 
 - não use o `ColorSchemeScript` do Mantine (é script inline);
-- não ative o Web Analytics do Cloudflare, que injeta script de terceiros e contradiz o escopo de não coletar dados;
+- não adicione analytics nem script de terceiros, o que também contradiz o escopo de não coletar dados;
 - não carregue fonte ou biblioteca de CDN. Instale pelo npm.
 
 ## Checklist de revisão de segurança (PR)
@@ -48,4 +60,4 @@ O Cloudflare Pages lê esse arquivo e aplica os cabeçalhos em todas as páginas
 - [ ] Nada de `dangerouslySetInnerHTML`, `eval` ou HTML montado com string.
 - [ ] Dado vindo do usuário (arquivo de respostas) validado com Zod.
 - [ ] Dependência nova tem ADR.
-- [ ] `public/_headers` não foi afrouxado sem justificativa.
+- [ ] A CSP do `index.html` não foi afrouxada sem justificativa.

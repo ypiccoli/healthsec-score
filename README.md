@@ -8,6 +8,8 @@ Projeto Integrador Institucional (FTEC/UNIFTEC), reunindo Engenharia de Produç�
 
 ## Como funciona
 
+Endereço: **https://ypiccoli.github.io/healthsec-score/** (no ar depois do primeiro PR de código).
+
 Tudo roda no navegador do cliente. Não há login, servidor nem banco de dados, e as respostas nunca saem do computador de quem responde.
 
 ```
@@ -32,7 +34,7 @@ Detalhes em [docs/escopo-mvp.md](docs/escopo-mvp.md).
 | Validação do questionário | Zod |
 | Gráficos | Recharts |
 | Testes | Vitest |
-| Publicação | GitHub Actions + Cloudflare Pages |
+| Publicação | GitHub Actions + GitHub Pages |
 | Varreduras | Gitleaks, Semgrep, Dependabot |
 
 Por que essa stack: [docs/adr/0001-stack.md](docs/adr/0001-stack.md).
