@@ -12,7 +12,7 @@ Tarefa do quadro: #
 
 ## Checklist
 
-- [ ] `npm run lint`, `npm run test` e `npm run build` passam na minha máquina
+- [ ] `npm run typecheck`, `npm run test` e `npm run build` passam na minha máquina
 - [ ] Se mudei o scoring, há teste novo ou atualizado
 - [ ] Nenhuma senha, token ou dado real (inclusive em teste e exemplo)
 - [ ] Nenhuma chamada de rede ou dependência nova (ou há ADR)

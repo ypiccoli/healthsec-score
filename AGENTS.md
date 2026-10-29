@@ -17,23 +17,20 @@ Site estático em que uma instituição de saúde responde a um questionário de
 
 TypeScript, React + Vite, Mantine, Zod, Recharts e Vitest. **Não adicionar dependência nova** sem uma ADR aprovada em `docs/adr/`. Prefira o que o Mantine já oferece antes de escrever CSS ou componente do zero.
 
-## Estrutura esperada
-
-O projeto Vite ainda vai ser criado. Quando existir, siga esta divisão:
+## Estrutura
 
 ```
 src/
-  app/            # rotas, layout, providers (Lógica e integração)
-  telas/          # uma pasta por tela: inicio, instituicao, questionario, resultado, relatorio
-  questionario/   # questionario.json + schema Zod + loader (Dados do questionário)
-  scoring/        # funções puras de cálculo + testes *.test.ts (Motor de scoring)
-  respostas/      # salvar/carregar localStorage e arquivo .json (Lógica e integração)
-  componentes/    # componentes compartilhados entre telas
-index.html        # contém a <meta> de CSP (docs/seguranca.md): não remover
-vite.config.ts    # base: "/healthsec-score/" (endereço do GitHub Pages)
+  App.tsx, main.tsx  # layout, providers e navegação entre telas (Lógica e integração)
+  pages/             # uma tela por arquivo/pasta: início, instituição, questionário, resultado (Front e UI/UX)
+  components/        # componentes compartilhados entre telas
+  data/              # questionario.json (Dados do questionário)
+  schema/            # schemas Zod do questionário e das respostas + testes
+  scoring/           # funções puras de cálculo + testes *.test.ts (Motor de scoring)
+  report/            # relatório para PDF (Resultado e relatório)
+index.html           # contém a <meta> de CSP (docs/seguranca.md): não remover
+vite.config.ts       # base: "/healthsec-score/" (endereço do GitHub Pages)
 ```
-
-Ao rodar `npm create vite@latest` neste diretório, escolha **ignorar os arquivos existentes**. Não apagar `docs/` nem `.github/`.
 
 O site é publicado no GitHub Pages em `https://ypiccoli.github.io/healthsec-score/`. Por isso:
 
@@ -43,7 +40,7 @@ O site é publicado no GitHub Pages em `https://ypiccoli.github.io/healthsec-sco
 
 ## Regras de código
 
-1. **O questionário vem só do `questionario.json`.** Nenhuma pergunta, peso ou recomendação escrita direto em componente. O arquivo é validado com Zod no carregamento. Formato em `docs/questionario-formato.md`.
+1. **O questionário vem só do `questionario.json`.** Nenhuma pergunta, peso ou recomendação escrita direto em componente. O arquivo é validado com Zod no carregamento. Schema em `src/schema/questionario.ts`, explicado em `docs/questionario-formato.md`.
 2. **O scoring é feito por funções puras** em `src/scoring/`: recebem questionário + respostas e devolvem resultado, sem React, sem `localStorage` e sem efeito colateral. Toda função tem teste Vitest. A regra está em `docs/scoring-regra.md`.
 3. **As telas não recalculam.** Resultado e relatório só exibem o que o scoring devolve.
 4. **Valide com Zod todo dado que vem de fora:** o `questionario.json` e, principalmente, o arquivo de respostas que o usuário carrega. Arquivo inválido gera mensagem amigável, nunca tela quebrada.
@@ -73,9 +70,9 @@ Depois que o projeto Vite existir:
 ```bash
 npm install        # instala dependências
 npm run dev        # servidor local
-npm run lint       # ESLint
+npm run typecheck  # checagem de tipos
 npm run test       # Vitest
 npm run build      # build de produção em dist/
 ```
 
-Antes de dar uma tarefa por concluída, rode `lint`, `test` e `build`. O CI roda os mesmos três.
+Antes de dar uma tarefa por concluída, rode `typecheck`, `test` e `build`. O CI roda os mesmos.

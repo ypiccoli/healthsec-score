@@ -33,7 +33,7 @@ Regra principal: ninguém mexe direto na versão publicada. Toda mudança passa 
    git add .
    git commit -m "Adiciona barra de progresso no questionário"
    ```
-4. **Rode as verificações** antes de enviar: `npm run lint`, `npm run test` e `npm run build`.
+4. **Rode as verificações** antes de enviar: `npm run typecheck`, `npm run test` e `npm run build`.
 5. **Envie e abra o PR:**
    ```bash
    git push -u origin thalia/tela-questionario

@@ -40,6 +40,10 @@ jobs:
         if: steps.app.outputs.existe == 'true'
         run: npm ci
 
+      - name: Checagem de tipos
+        if: steps.app.outputs.existe == 'true'
+        run: npm run typecheck --if-present
+
       - name: Lint
         if: steps.app.outputs.existe == 'true'
         run: npm run lint --if-present
