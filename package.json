@@ -12,7 +12,7 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
-    "@mantine/core": "^7.13.2",
+    "@mantine/core": "^9.7.4",
     "@mantine/hooks": "^7.13.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
