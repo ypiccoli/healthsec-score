@@ -67,7 +67,7 @@ npm run dev
 
 ## Contribuindo
 
-Leia o [CONTRIBUTING.md](CONTRIBUTING.md) antes do primeiro PR. Quem usa IA (Claude, Codex, ChatGPT) para programar: as regras para o agente estão no [AGENTS.md](AGENTS.md).
+Leia o [CONTRIBUTING.md](CONTRIBUTING.md) antes do primeiro PR. Convenções para ferramentas de apoio ao código: [AGENTS.md](AGENTS.md) e [CLAUDE.md](CLAUDE.md).
 
 ## Documentação
 
