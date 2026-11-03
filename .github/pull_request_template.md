@@ -16,6 +16,5 @@ Tarefa do quadro: #
 - [ ] Se mudei o scoring, há teste novo ou atualizado
 - [ ] Nenhuma senha, token ou dado real (inclusive em teste e exemplo)
 - [ ] Nenhuma chamada de rede ou dependência nova (ou há ADR)
-- [ ] Usei IA? Entendo e sei explicar cada linha deste PR
 
 ## Prints (se mudou tela)

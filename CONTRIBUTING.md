@@ -48,9 +48,3 @@ Regra principal: ninguém mexe direto na versão publicada. Toda mudança passa 
 
 Travou por mais de 30 minutos, pergunte no grupo. Pergunta de código vai para o Gabriel. Pergunta de segurança ou publicação vai para o Ygor.
 
-## IA como apoio
-
-Pode usar Claude, Codex ou ChatGPT para explicar um erro, um conceito ou um trecho de código. As regras que o agente deve seguir estão no [AGENTS.md](AGENTS.md). Dois cuidados:
-
-- **Entenda o que vai no seu PR.** Se não souber explicar um trecho gerado, não envie.
-- **Nunca cole senhas, chaves ou dados de alguém** na conversa com a IA.

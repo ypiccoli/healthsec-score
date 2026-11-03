@@ -62,6 +62,7 @@ O site é publicado no GitHub Pages em `https://ypiccoli.github.io/healthsec-sco
 - Commits pequenos, com mensagem em português no imperativo, dizendo o que mudou (ex.: `Adiciona cálculo do score por domínio`).
 - Todo PR usa o template, passa no CI e tem aprovação. Revisão de código: Gabriel. Segurança, publicação e questionário: Ygor.
 - **A pessoa que abre o PR precisa entender cada linha que a IA gerou.** Se não souber explicar um trecho, simplifique ou pergunte antes de pedir revisão.
+- **Não deixar marca de ferramenta em nada que fica público.** Sem `Co-Authored-By`, sem "Generated with" e sem citar assistente de código em commits, PRs, issues, comentários de código ou documentação. Commits e PRs saem só em nome da pessoa.
 
 ## Comandos
 
