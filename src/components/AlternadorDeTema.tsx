@@ -1,4 +1,4 @@
-import { ActionIcon, Container, Group, Text, useMantineColorScheme } from '@mantine/core';
+import { ActionIcon, useMantineColorScheme } from '@mantine/core';
 
 function IconeDeLua() {
   return (
@@ -31,28 +31,18 @@ function IconeDeSol() {
 export function AlternadorDeTema() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
   const temaEscuroAtivo = colorScheme === 'dark';
-
-  function alternarTema() {
-    setColorScheme(temaEscuroAtivo ? 'light' : 'dark');
-  }
-
   const nomeDaAcao = temaEscuroAtivo ? 'Ativar modo claro' : 'Ativar modo escuro';
 
   return (
-    <Container size="sm" pt="md">
-      <Group justify="space-between">
-        <Text fw={700}>HealthSec Score</Text>
-        <ActionIcon
-          variant="subtle"
-          color="gray"
-          size="lg"
-          aria-label={nomeDaAcao}
-          title={nomeDaAcao}
-          onClick={alternarTema}
-        >
-          {temaEscuroAtivo ? <IconeDeSol /> : <IconeDeLua />}
-        </ActionIcon>
-      </Group>
-    </Container>
+    <ActionIcon
+      variant="subtle"
+      color="gray"
+      size="lg"
+      aria-label={nomeDaAcao}
+      title={nomeDaAcao}
+      onClick={() => setColorScheme(temaEscuroAtivo ? 'light' : 'dark')}
+    >
+      {temaEscuroAtivo ? <IconeDeSol /> : <IconeDeLua />}
+    </ActionIcon>
   );
 }
