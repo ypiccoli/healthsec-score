@@ -6,7 +6,7 @@ import { App } from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <MantineProvider>
+    <MantineProvider defaultColorScheme="light">
       <App />
     </MantineProvider>
   </React.StrictMode>,
