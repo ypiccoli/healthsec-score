@@ -53,7 +53,7 @@ O site é publicado no GitHub Pages em `https://ypiccoli.github.io/healthsec-sco
 - Nunca inserir segredo, token, chave, senha ou URL interna no código, em teste ou em exemplo.
 - Dados de exemplo e de teste são **sempre fictícios**. Nada de nome de instituição real, paciente, CPF, CNPJ ou e-mail real.
 - Não adicionar script inline nem recurso de CDN externo. A CSP no `index.html` bloqueia, e afrouxar a CSP exige revisão de segurança.
-- Não usar o `ColorSchemeScript` do Mantine (é script inline). Tema claro fixo no MVP.
+- Não usar o `ColorSchemeScript` do Mantine (é script inline). O tema claro é o padrão. A alternância claro/escuro é permitida via `useMantineColorScheme`, aceitando que a página pisque no tema claro ao recarregar.
 - Este repositório é **público** e é um trabalho acadêmico. Não citar empresas, clientes ou ambientes reais de nenhum integrante.
 
 ## Fluxo de trabalho
