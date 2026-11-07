@@ -1,6 +1,6 @@
 # Como contribuir
 
-Regra principal: ninguém mexe direto na versão publicada. Toda mudança passa por um pull request (PR) que outra pessoa aprova. A `main` é protegida, e o GitHub recusa push direto nela.
+Regra principal: ninguém mexe direto na versão publicada. Toda mudança passa por um pull request (PR) que o Ygor revisa e aprova. A `main` é protegida, e o GitHub recusa push direto nela.
 
 ## Antes de tudo
 
@@ -38,13 +38,11 @@ Regra principal: ninguém mexe direto na versão publicada. Toda mudança passa 
    ```bash
    git push -u origin thalia/tela-questionario
    ```
-   O GitHub mostra um link para abrir o PR. Preencha o template e marque quem revisa:
-   - **Gabriel:** código.
-   - **Ygor:** segurança, publicação e conteúdo do questionário.
+   O GitHub mostra um link para abrir o PR. Preencha o template e vincule a tarefa com `Closes #N` (ou `Refs #N` se ela continua depois do PR). Sem issue também vale; o vínculo é feito na revisão. O Ygor entra como revisor sozinho.
 6. **Revisão.** Responda aos comentários com novos commits na mesma branch.
-7. **Merge.** Com aprovação e verificações verdes, faça o merge (squash). O site atualiza sozinho.
+7. **Merge.** Com aprovação e verificações verdes, o Ygor faz o merge (squash). O site atualiza sozinho.
 
 ## Travou?
 
-Travou por mais de 30 minutos, pergunte no grupo. Pergunta de código vai para o Gabriel. Pergunta de segurança ou publicação vai para o Ygor.
+Travou por mais de 30 minutos, pergunte no grupo. Pergunta de código pode ir para o Gabriel. Revisão, segurança e publicação ficam com o Ygor.
 
