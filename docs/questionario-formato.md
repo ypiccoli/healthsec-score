@@ -49,7 +49,7 @@ Exemplo completo, com dados fictícios: [exemplos/questionario.exemplo.json](exe
 
 O schema está em [`src/schema/questionario.ts`](../src/schema/questionario.ts) e segue as regras acima. O `questionario.json` é validado com ele ao carregar. Mudou o schema, atualize este documento no mesmo PR.
 
-O teste em `src/schema/questionario.test.ts` confere o formato e, por enquanto, espera exatamente as 4 perguntas de exemplo. Quando o arquivo crescer, ajuste esse número (ou troque a checagem) no mesmo PR.
+O teste em `src/schema/questionario.test.ts` confere o formato, as 20 perguntas em 8 domínios e se o id de cada pergunta começa com o id do domínio. Mudou o `questionario.json`, ajuste o teste no mesmo PR.
 
 ## Arquivo de respostas
 

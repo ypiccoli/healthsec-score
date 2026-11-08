@@ -50,14 +50,14 @@ npm install
 npm run dev
 ```
 
-> Estado atual: as telas de início, dados da instituição, questionário, resultado e relatório estão no ar. O questionário tem só as perguntas de exemplo, e o resultado e o relatório ainda mostram dados de demonstração até o motor de scoring ficar pronto.
+> Estado atual: as telas de início, dados da instituição, questionário, resultado e relatório estão no ar. O questionário tem 20 perguntas em 8 domínios, e o resultado e o relatório ainda mostram dados de demonstração até o motor de scoring ficar pronto.
 
 ## Quem faz o quê
 
 | Frente | Entrega |
 |---|---|
 | Front e UI/UX | Protótipo no Figma; telas de início, dados da instituição e questionário |
-| Lógica e integração | Estrutura do projeto, navegação, salvar e carregar respostas, revisão de código |
+| Lógica e integração | Estrutura do projeto, navegação, salvar e carregar respostas |
 | Dados do questionário | `questionario.json` com domínios, perguntas, pesos e recomendações |
 | Motor de scoring | Funções de score, classificação e prioridades, com testes |
 | Resultado e relatório | Tela de resultado com gráficos e página de relatório para PDF |
