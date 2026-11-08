@@ -1,11 +1,4 @@
-# Quem é chamado automaticamente para revisar cada parte.
-# Código em geral: Gabriel. Segurança, publicação e questionário: Ygor. Dados do questionário: Lucas.
-# TODO: incluir o resto do grupo quando os convites forem aceitos.
+# Quem é chamado automaticamente para revisar.
+# O Ygor revisa e faz o merge de todos os PRs.
 
-*                         @pedroni-g @ypiccoli
-
-/.github/                 @ypiccoli
-/index.html               @ypiccoli
-/docs/seguranca.md        @ypiccoli
-/docs/questionario-formato.md @lucasdeinani @ypiccoli
-/src/questionario/        @lucasdeinani @ypiccoli
+*                         @ypiccoli

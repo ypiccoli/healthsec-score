@@ -19,7 +19,7 @@ O MVP não tem servidor, banco nem login ([ADR 0002](adr/0002-sem-backend.md)). 
 | Semgrep | `.github/workflows/security.yml` | Análise estática (regras de JS/TS e React). Resultados na aba Security. |
 | Dependabot | `.github/dependabot.yml` | Alerta e abre PR para dependências vulneráveis ou desatualizadas. |
 | CSP | `<meta>` no `index.html` | Restringe o que o navegador carrega e executa. |
-| Validação com Zod | `src/questionario/`, `src/respostas/` | Rejeita JSON fora do formato antes de usar. |
+| Validação com Zod | `src/schema/` (questionário e arquivo de respostas) | Rejeita JSON fora do formato antes de usar. |
 | Regras de código | `AGENTS.md` | Proíbem `dangerouslySetInnerHTML`, `eval`, script inline e chamada de rede. |
 
 ## CSP e cabeçalhos

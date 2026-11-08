@@ -8,7 +8,7 @@ Projeto Integrador Institucional (FTEC/UNIFTEC), reunindo Engenharia de Produç�
 
 ## Como funciona
 
-Endereço: **https://ypiccoli.github.io/healthsec-score/** (no ar depois do primeiro PR de código).
+Endereço: **https://ypiccoli.github.io/healthsec-score/**
 
 Tudo roda no navegador do cliente. Não há login, servidor nem banco de dados, e as respostas nunca saem do computador de quem responde.
 
@@ -50,14 +50,14 @@ npm install
 npm run dev
 ```
 
-> A aplicação ainda não foi criada. O primeiro PR de código cria o projeto Vite. Até lá, o repositório tem só a documentação e as verificações.
+> Estado atual: as telas de início, dados da instituição, questionário, resultado e relatório estão no ar. O questionário tem 20 perguntas em 8 domínios, e o resultado e o relatório ainda mostram dados de demonstração até o motor de scoring ficar pronto.
 
 ## Quem faz o quê
 
 | Frente | Entrega |
 |---|---|
 | Front e UI/UX | Protótipo no Figma; telas de início, dados da instituição e questionário |
-| Lógica e integração | Estrutura do projeto, navegação, salvar e carregar respostas, revisão de código |
+| Lógica e integração | Estrutura do projeto, navegação, salvar e carregar respostas |
 | Dados do questionário | `questionario.json` com domínios, perguntas, pesos e recomendações |
 | Motor de scoring | Funções de score, classificação e prioridades, com testes |
 | Resultado e relatório | Tela de resultado com gráficos e página de relatório para PDF |

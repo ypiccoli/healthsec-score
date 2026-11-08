@@ -2,7 +2,9 @@
 
 <!-- Uma ou duas frases. Ex.: "Adiciona a barra de progresso no questionário." -->
 
-Tarefa do quadro: #
+Closes #
+
+<!-- Use Refs # se a tarefa continua depois deste PR. Sem issue, pode deixar vazio. -->
 
 ## Como testar
 
