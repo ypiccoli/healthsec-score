@@ -67,5 +67,5 @@ O arquivo que o usuário baixa também é validado com Zod ao ser carregado, por
 
 ## Pendências
 
-- [ ] Lista final de domínios (Lucas + Ygor).
+- [x] Lista final de domínios (Lucas + Ygor): 8 domínios e 20 perguntas em `src/data/questionario.json`, a validar com o Ygor no PR.
 - [ ] Decidir se haverá opção "Não se aplica" e como ela entra no cálculo (ver [scoring-regra.md](scoring-regra.md)).
