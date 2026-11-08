@@ -7,13 +7,24 @@ describe('questionario.json', () => {
     expect(() => questionarioSchema.parse(dadosDoQuestionario)).not.toThrow();
   });
 
-  it('contém as quatro perguntas de exemplo', () => {
+  it('contém 20 perguntas em 8 domínios', () => {
     const questionario = questionarioSchema.parse(dadosDoQuestionario);
     const quantidadeDePerguntas = questionario.dominios.reduce(
       (total, dominio) => total + dominio.perguntas.length,
       0,
     );
 
-    expect(quantidadeDePerguntas).toBe(4);
+    expect(questionario.dominios).toHaveLength(8);
+    expect(quantidadeDePerguntas).toBe(20);
+  });
+
+  it('usa o id do domínio como prefixo do id de cada pergunta', () => {
+    const questionario = questionarioSchema.parse(dadosDoQuestionario);
+
+    for (const dominio of questionario.dominios) {
+      for (const pergunta of dominio.perguntas) {
+        expect(pergunta.id.startsWith(`${dominio.id}-`)).toBe(true);
+      }
+    }
   });
 });

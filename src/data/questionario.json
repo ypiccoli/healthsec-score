@@ -1,57 +1,450 @@
 {
   "dominios": [
     {
-      "id": "backup",
-      "nome": "Backup e continuidade",
+      "id": "governanca",
+      "nome": "Governança e gestão da segurança",
       "perguntas": [
         {
-          "id": "backup-01",
-          "texto": "A instituição testa a restauração dos backups?",
-          "peso": 3,
-          "opcoes": [
-            { "texto": "Não", "valor": 0 },
-            { "texto": "Às vezes", "valor": 1 },
-            { "texto": "Sim, com rotina definida", "valor": 2 }
-          ],
-          "recomendacao": "Testar a restauração ao menos uma vez por trimestre."
-        },
-        {
-          "id": "backup-02",
-          "texto": "Existe uma cópia dos backups guardada fora da rede principal?",
+          "id": "governanca-01",
+          "texto": "A instituição possui orientações formalizadas sobre como usar os sistemas de trabalho e tratar informações de pacientes?",
           "peso": 2,
           "opcoes": [
-            { "texto": "Não", "valor": 0 },
-            { "texto": "Não sei", "valor": 0 },
-            { "texto": "Sim", "valor": 2 }
+            {
+              "texto": "Não há orientações formalizadas.",
+              "valor": 0
+            },
+            {
+              "texto": "Há orientações informais ou documentos desatualizados, pouco conhecidos pela equipe.",
+              "valor": 1
+            },
+            {
+              "texto": "As orientações estão documentadas, acessíveis à equipe e são revistas quando necessário.",
+              "valor": 2
+            }
           ],
-          "recomendacao": "Manter ao menos uma cópia dos backups desconectada da rede ou em nuvem separada."
+          "recomendacao": "Registre orientações simples sobre o uso dos sistemas e o tratamento das informações e mantenha-as acessíveis à equipe."
+        },
+        {
+          "id": "governanca-02",
+          "texto": "A instituição indicou uma pessoa responsável por cuidar da proteção de dados pessoais (encarregado ou DPO) e divulga como pacientes podem entrar em contato com ela?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não há uma pessoa indicada para cuidar da proteção de dados.",
+              "valor": 0
+            },
+            {
+              "texto": "Há uma pessoa que cuida do tema, mas a indicação não é formal ou o contato não é divulgado aos pacientes.",
+              "valor": 1
+            },
+            {
+              "texto": "O encarregado está formalmente indicado e o contato dele é divulgado aos pacientes.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Indique formalmente um encarregado pela proteção de dados, interno ou contratado, e divulgue o contato dele no site, na recepção ou nos documentos entregues aos pacientes."
+        }
+      ]
+    },
+    {
+      "id": "ativos",
+      "nome": "Inventário e manutenção de ativos e sistemas",
+      "perguntas": [
+        {
+          "id": "ativos-01",
+          "texto": "A instituição mantém uma lista atualizada dos computadores, notebooks, celulares corporativos e equipamentos de rede usados no atendimento?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não existe uma lista desses equipamentos.",
+              "valor": 0
+            },
+            {
+              "texto": "Existe uma lista, mas faltam equipamentos ou ela está desatualizada.",
+              "valor": 1
+            },
+            {
+              "texto": "A lista identifica os equipamentos em uso e é atualizada quando há entradas, saídas ou mudanças.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Crie uma lista simples dos equipamentos usados pela instituição, com responsável e localização, e atualize-a a cada mudança."
+        },
+        {
+          "id": "ativos-02",
+          "texto": "Os sistemas operacionais e programas usados no atendimento recebem atualizações de segurança em prazos definidos?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "As atualizações não são realizadas de forma regular.",
+              "valor": 0
+            },
+            {
+              "texto": "As atualizações são feitas irregularmente ou alguns equipamentos ficam sem acompanhamento.",
+              "valor": 1
+            },
+            {
+              "texto": "As atualizações são aplicadas de forma regular, e falhas ou sistemas sem suporte são identificados e tratados.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Ative as atualizações automáticas quando possível e estabeleça uma rotina para verificar atualizações pendentes e sistemas sem suporte."
         }
       ]
     },
     {
       "id": "acessos",
-      "nome": "Controle de acesso",
+      "nome": "Controle de acesso e privilégios",
       "perguntas": [
         {
           "id": "acessos-01",
-          "texto": "Os sistemas com dados de pacientes exigem um segundo fator de autenticação?",
+          "texto": "As permissões de cada profissional nos sistemas são limitadas ao que ele precisa para trabalhar?",
           "peso": 3,
           "opcoes": [
-            { "texto": "Não", "valor": 0 },
-            { "texto": "Em alguns sistemas", "valor": 1 },
-            { "texto": "Em todos", "valor": 2 }
+            {
+              "texto": "As permissões não seguem as funções de trabalho e há acessos amplos ou de administrador sem controle.",
+              "valor": 0
+            },
+            {
+              "texto": "As permissões seguem as funções em parte, mas ainda existem acessos excessivos ou de administrador sem revisão.",
+              "valor": 1
+            },
+            {
+              "texto": "As permissões são definidas conforme a função, e o acesso de administrador fica restrito a pessoas autorizadas.",
+              "valor": 2
+            }
           ],
-          "recomendacao": "Ativar o segundo fator de autenticação, começando pelo e-mail e pelo sistema de prontuário."
+          "recomendacao": "Revise as permissões de cada profissional, limite-as ao necessário para o trabalho e reserve as funções de administrador a pessoas autorizadas. Quando possível, use contas separadas para tarefas administrativas."
         },
         {
           "id": "acessos-02",
-          "texto": "Cada pessoa tem o próprio usuário, sem logins compartilhados?",
-          "peso": 1,
+          "texto": "Quando alguém muda de função ou deixa a instituição, os acessos aos sistemas e dados são ajustados ou removidos prontamente?",
+          "peso": 3,
           "opcoes": [
-            { "texto": "Não", "valor": 0 },
-            { "texto": "Sim", "valor": 2 }
+            {
+              "texto": "Não existe um procedimento para ajustar ou remover acessos nessas situações.",
+              "valor": 0
+            },
+            {
+              "texto": "Os acessos são alterados, mas podem ocorrer atrasos ou esquecimentos.",
+              "valor": 1
+            },
+            {
+              "texto": "Existe um procedimento conhecido que aciona a revisão ou remoção dos acessos sempre que ocorre uma mudança.",
+              "valor": 2
+            }
           ],
-          "recomendacao": "Criar um usuário por pessoa e desativar os logins compartilhados."
+          "recomendacao": "Inclua a revisão ou remoção de acessos no processo de desligamento e mudança de função, registrando a conclusão da tarefa."
+        },
+        {
+          "id": "acessos-03",
+          "texto": "Os sistemas que armazenam dados de pacientes exigem uma confirmação adicional além da senha, como um código ou aviso no celular, sempre que oferecem esse recurso?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Nenhum dos sistemas importantes exige uma confirmação adicional além da senha, mesmo quando oferece esse recurso.",
+              "valor": 0
+            },
+            {
+              "texto": "A confirmação adicional é exigida em alguns sistemas, mas ainda falta ativá-la em outros sistemas importantes que oferecem esse recurso.",
+              "valor": 1
+            },
+            {
+              "texto": "A confirmação adicional é exigida em todos os sistemas importantes que oferecem esse recurso.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Ative a verificação em duas etapas nos sistemas importantes que oferecem esse recurso, começando pelo e-mail de trabalho e pelo sistema de prontuários."
+        },
+        {
+          "id": "acessos-04",
+          "texto": "Cada profissional utiliza sua própria conta para acessar os sistemas de trabalho, sem compartilhar o mesmo usuário e senha com colegas?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "As pessoas compartilham contas ou senhas para acessar um ou mais sistemas.",
+              "valor": 0
+            },
+            {
+              "texto": "A maioria utiliza contas próprias, mas ainda existem contas ou senhas compartilhadas em alguns sistemas ou situações.",
+              "valor": 1
+            },
+            {
+              "texto": "Cada profissional utiliza sua própria conta, e o compartilhamento de contas ou senhas não é permitido.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Crie uma conta individual para cada profissional e evite o compartilhamento de usuários e senhas. Quando uma exceção técnica for necessária, limite e controle seu uso."
+        }
+      ]
+    },
+    {
+      "id": "dados",
+      "nome": "Proteção de dados e privacidade",
+      "perguntas": [
+        {
+          "id": "dados-01",
+          "texto": "A instituição compartilha dados de pacientes somente com destinatários autorizados e por canais aprovados?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Não existem regras claras para verificar destinatários ou canais de compartilhamento.",
+              "valor": 0
+            },
+            {
+              "texto": "Há regras, mas a verificação do destinatário ou o uso de canais aprovados é inconsistente.",
+              "valor": 1
+            },
+            {
+              "texto": "A autorização do destinatário é verificada e são usados canais aprovados de forma consistente.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Defina os canais permitidos para compartilhar dados e instrua a equipe a confirmar o destinatário e sua autorização antes do envio."
+        },
+        {
+          "id": "dados-02",
+          "texto": "A instituição definiu por quanto tempo mantém informações de pacientes e como descarta com segurança as que não precisam mais ser guardadas?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não há critérios definidos para retenção e descarte das informações.",
+              "valor": 0
+            },
+            {
+              "texto": "Há critérios para alguns registros, mas são aplicados de forma irregular ou incompleta.",
+              "valor": 1
+            },
+            {
+              "texto": "Os prazos de retenção e os métodos de descarte estão definidos e são aplicados conforme o tipo de informação.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Documente os prazos de guarda aplicáveis e estabeleça métodos seguros para descartar documentos físicos e arquivos digitais ao fim do período definido."
+        }
+      ]
+    },
+    {
+      "id": "backup",
+      "nome": "Backup e recuperação",
+      "perguntas": [
+        {
+          "id": "backup-01",
+          "texto": "A instituição realiza cópias de segurança regulares dos dados e sistemas essenciais?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Não realiza cópias regulares ou não sabe se elas são feitas.",
+              "valor": 0
+            },
+            {
+              "texto": "As cópias são feitas, mas sem frequência definida ou sem incluir todos os dados e sistemas essenciais.",
+              "valor": 1
+            },
+            {
+              "texto": "As cópias são realizadas com frequência definida e incluem os dados e sistemas essenciais.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Defina quais dados e sistemas precisam de cópias de segurança e estabeleça uma frequência de realização adequada à rotina da instituição."
+        },
+        {
+          "id": "backup-02",
+          "texto": "A instituição mantém pelo menos uma cópia de segurança em um local separado dos computadores e sistemas usados no dia a dia?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não; todas as cópias ficam nos mesmos equipamentos ou na mesma rede.",
+              "valor": 0
+            },
+            {
+              "texto": "Existe outra cópia, mas ela continua ligada à rede principal ou não sabemos se está realmente separada.",
+              "valor": 1
+            },
+            {
+              "texto": "Sim; existe pelo menos uma cópia guardada separadamente ou desconectada dos equipamentos de uso diário.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Mantenha pelo menos uma cópia em local separado da rede e dos equipamentos usados no dia a dia, com acesso protegido."
+        },
+        {
+          "id": "backup-03",
+          "texto": "A instituição testa se consegue recuperar os dados a partir das cópias de segurança?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "A recuperação nunca foi testada ou não se sabe se foi.",
+              "valor": 0
+            },
+            {
+              "texto": "A recuperação já foi testada, mas sem rotina definida ou só para parte dos dados.",
+              "valor": 1
+            },
+            {
+              "texto": "A recuperação é testada periodicamente com os dados essenciais, e o resultado é registrado.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Teste a recuperação dos dados essenciais a partir das cópias ao menos uma vez por trimestre e registre se deu certo e quanto tempo levou."
+        }
+      ]
+    },
+    {
+      "id": "protecao",
+      "nome": "Proteção de dispositivos, redes e ambientes",
+      "perguntas": [
+        {
+          "id": "protecao-01",
+          "texto": "Os computadores usados no atendimento possuem proteção contra programas maliciosos ativada e atualizada?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Não há proteção contra programas maliciosos ou não é possível confirmar que esteja ativa.",
+              "valor": 0
+            },
+            {
+              "texto": "A proteção está ativa em parte dos equipamentos ou suas atualizações não são verificadas regularmente.",
+              "valor": 1
+            },
+            {
+              "texto": "A proteção está ativa nos equipamentos relevantes e suas atualizações são automáticas ou verificadas regularmente.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Ative e mantenha atualizada a proteção contra programas maliciosos em todos os computadores usados no atendimento."
+        },
+        {
+          "id": "protecao-02",
+          "texto": "A rede Wi-Fi oferecida a pacientes e visitantes é separada da rede usada para acessar prontuários e sistemas internos?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Pacientes, visitantes e equipe usam a mesma rede sem separação adequada.",
+              "valor": 0
+            },
+            {
+              "texto": "Há separação em parte da estrutura, mas a configuração ou sua aplicação não é verificada.",
+              "valor": 1
+            },
+            {
+              "texto": "A rede de visitantes é separada da rede interna e a configuração é mantida pelo responsável técnico.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Peça ao responsável técnico ou ao fornecedor da rede que separe a rede de visitantes daquela usada por sistemas e equipamentos internos."
+        },
+        {
+          "id": "protecao-03",
+          "texto": "Notebooks e celulares que acessam dados de pacientes têm senha de bloqueio de tela e armazenamento criptografado, para que os dados fiquem protegidos em caso de perda ou roubo?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Os equipamentos portáteis não têm bloqueio de tela nem criptografia, ou não se sabe.",
+              "valor": 0
+            },
+            {
+              "texto": "Alguns equipamentos têm bloqueio e criptografia, mas não todos.",
+              "valor": 1
+            },
+            {
+              "texto": "Todos os equipamentos portáteis que acessam dados de pacientes têm bloqueio de tela e criptografia ativados.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Ative o bloqueio automático de tela com senha e a criptografia do armazenamento (como BitLocker, FileVault ou a criptografia nativa do celular) em todos os equipamentos portáteis."
+        }
+      ]
+    },
+    {
+      "id": "pessoas-fornecedores",
+      "nome": "Conscientização e fornecedores",
+      "perguntas": [
+        {
+          "id": "pessoas-fornecedores-01",
+          "texto": "Os colaboradores recebem orientação sobre segurança da informação ao ingressar e periodicamente, incluindo como reconhecer mensagens suspeitas?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não há orientação organizada sobre segurança da informação.",
+              "valor": 0
+            },
+            {
+              "texto": "A orientação ocorre ocasionalmente ou não alcança todos os colaboradores.",
+              "valor": 1
+            },
+            {
+              "texto": "Todos recebem orientação ao ingressar e reciclagens periódicas.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Inclua uma orientação inicial e reciclagens periódicas sobre proteção de dados, mensagens suspeitas e comunicação de problemas, registrando quem participou."
+        },
+        {
+          "id": "pessoas-fornecedores-02",
+          "texto": "A instituição mantém uma lista atualizada dos fornecedores que podem acessar seus sistemas ou dados, com um contato interno responsável por cada um?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não existe uma lista desses fornecedores.",
+              "valor": 0
+            },
+            {
+              "texto": "A lista está incompleta, desatualizada ou não identifica um responsável interno.",
+              "valor": 1
+            },
+            {
+              "texto": "A lista identifica os fornecedores relevantes e seus contatos internos responsáveis, e é atualizada quando há mudanças.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Registre os fornecedores com acesso a sistemas ou dados, o serviço prestado e a pessoa interna responsável, atualizando a lista quando houver mudanças."
+        }
+      ]
+    },
+    {
+      "id": "incidentes",
+      "nome": "Monitoramento e resposta a incidentes",
+      "perguntas": [
+        {
+          "id": "incidentes-01",
+          "texto": "A instituição ou seu suporte técnico verifica regularmente quem acessa os sistemas com dados de pacientes e investiga acessos ou atividades que pareçam fora do normal?",
+          "peso": 2,
+          "opcoes": [
+            {
+              "texto": "Não há verificação regular de quem acessa esses sistemas nem de atividades suspeitas.",
+              "valor": 0
+            },
+            {
+              "texto": "A verificação ocorre apenas quando surge um problema ou é feita em alguns sistemas, sem uma frequência definida.",
+              "valor": 1
+            },
+            {
+              "texto": "Existe uma rotina de verificação dos acessos, e as situações fora do normal são analisadas.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Combine com o responsável técnico uma rotina para verificar o histórico de acessos aos sistemas importantes e definir como analisar e registrar atividades fora do normal."
+        },
+        {
+          "id": "incidentes-02",
+          "texto": "Os colaboradores sabem a quem comunicar rapidamente uma suspeita de incidente, como perda de equipamento ou envio indevido de dados?",
+          "peso": 3,
+          "opcoes": [
+            {
+              "texto": "Não há canal nem pessoa definida para receber a comunicação.",
+              "valor": 0
+            },
+            {
+              "texto": "Existe um canal ou responsável, mas a equipe não o conhece bem ou não há substituto quando ele está ausente.",
+              "valor": 1
+            },
+            {
+              "texto": "A equipe conhece o canal e o responsável, e há um substituto definido para as ausências.",
+              "valor": 2
+            }
+          ],
+          "recomendacao": "Defina um canal simples para comunicar incidentes, com um responsável e um substituto, e informe toda a equipe. Inclua no procedimento a avaliação da comunicação à ANPD e aos pacientes afetados, como prevê a LGPD."
         }
       ]
     }
