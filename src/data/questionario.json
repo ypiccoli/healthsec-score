@@ -7,6 +7,7 @@
         {
           "id": "governanca-01",
           "texto": "A instituição possui orientações formalizadas sobre como usar os sistemas de trabalho e tratar informações de pacientes?",
+          "explicacao": "Sem regras escritas, cada profissional age do seu jeito, e erros como enviar um exame pelo WhatsApp pessoal passam a ser rotina. Orientações claras são a base para cobrar e treinar a equipe.",
           "peso": 2,
           "opcoes": [
             {
@@ -22,11 +23,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Registre orientações simples sobre o uso dos sistemas e o tratamento das informações e mantenha-as acessíveis à equipe."
+          "recomendacao": "Registre orientações simples sobre o uso dos sistemas e o tratamento das informações e mantenha-as acessíveis à equipe.",
+          "referencia": "NIST CSF GV.PO, LGPD art. 50"
         },
         {
           "id": "governanca-02",
           "texto": "A instituição indicou uma pessoa responsável por cuidar da proteção de dados pessoais (encarregado ou DPO) e divulga como pacientes podem entrar em contato com ela?",
+          "explicacao": "A LGPD exige que exista um encarregado e que o contato dele seja público. É essa pessoa que atende os pacientes e a ANPD quando surge uma dúvida ou um incidente.",
           "peso": 2,
           "opcoes": [
             {
@@ -42,7 +45,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Indique formalmente um encarregado pela proteção de dados, interno ou contratado, e divulgue o contato dele no site, na recepção ou nos documentos entregues aos pacientes."
+          "recomendacao": "Indique formalmente um encarregado pela proteção de dados, interno ou contratado, e divulgue o contato dele no site, na recepção ou nos documentos entregues aos pacientes.",
+          "referencia": "LGPD art. 41"
         }
       ]
     },
@@ -53,6 +57,7 @@
         {
           "id": "ativos-01",
           "texto": "A instituição mantém uma lista atualizada dos computadores, notebooks, celulares corporativos e equipamentos de rede usados no atendimento?",
+          "explicacao": "Não dá para proteger um equipamento que ninguém sabe que existe. A lista mostra o que precisa de atualização e antivírus, e o que deve ser recolhido quando alguém sai.",
           "peso": 2,
           "opcoes": [
             {
@@ -68,11 +73,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Crie uma lista simples dos equipamentos usados pela instituição, com responsável e localização, e atualize-a a cada mudança."
+          "recomendacao": "Crie uma lista simples dos equipamentos usados pela instituição, com responsável e localização, e atualize-a a cada mudança.",
+          "referencia": "CIS 1.1, NIST CSF ID.AM"
         },
         {
           "id": "ativos-02",
           "texto": "Os sistemas operacionais e programas usados no atendimento recebem atualizações de segurança em prazos definidos?",
+          "explicacao": "A maioria dos ataques explora falhas que já têm correção publicada. Manter tudo atualizado fecha essas portas antes que alguém as use.",
           "peso": 3,
           "opcoes": [
             {
@@ -88,7 +95,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Ative as atualizações automáticas quando possível e estabeleça uma rotina para verificar atualizações pendentes e sistemas sem suporte."
+          "recomendacao": "Ative as atualizações automáticas quando possível e estabeleça uma rotina para verificar atualizações pendentes e sistemas sem suporte.",
+          "referencia": "CIS 7.3 e 7.4, NIST CSF PR.PS"
         }
       ]
     },
@@ -99,6 +107,7 @@
         {
           "id": "acessos-01",
           "texto": "As permissões de cada profissional nos sistemas são limitadas ao que ele precisa para trabalhar?",
+          "explicacao": "Quanto menos cada conta pode fazer, menor o estrago quando ela é invadida ou usada por engano. Conta de administrador nas mãos de todos permite instalar programas maliciosos e apagar dados.",
           "peso": 3,
           "opcoes": [
             {
@@ -114,11 +123,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Revise as permissões de cada profissional, limite-as ao necessário para o trabalho e reserve as funções de administrador a pessoas autorizadas. Quando possível, use contas separadas para tarefas administrativas."
+          "recomendacao": "Revise as permissões de cada profissional, limite-as ao necessário para o trabalho e reserve as funções de administrador a pessoas autorizadas. Quando possível, use contas separadas para tarefas administrativas.",
+          "referencia": "CIS 5.4 e 6.8, NIST CSF PR.AA"
         },
         {
           "id": "acessos-02",
           "texto": "Quando alguém muda de função ou deixa a instituição, os acessos aos sistemas e dados são ajustados ou removidos prontamente?",
+          "explicacao": "Uma conta de ex-funcionário que continua ativa é uma porta aberta, tanto para a própria pessoa quanto para quem descobrir a senha dela.",
           "peso": 3,
           "opcoes": [
             {
@@ -134,11 +145,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Inclua a revisão ou remoção de acessos no processo de desligamento e mudança de função, registrando a conclusão da tarefa."
+          "recomendacao": "Inclua a revisão ou remoção de acessos no processo de desligamento e mudança de função, registrando a conclusão da tarefa.",
+          "referencia": "CIS 6.1 e 6.2"
         },
         {
           "id": "acessos-03",
           "texto": "Os sistemas que armazenam dados de pacientes exigem uma confirmação adicional além da senha, como um código ou aviso no celular, sempre que oferecem esse recurso?",
+          "explicacao": "Senhas vazam e são adivinhadas com frequência. A confirmação adicional impede o acesso mesmo quando alguém descobre a senha.",
           "peso": 3,
           "opcoes": [
             {
@@ -154,11 +167,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Ative a verificação em duas etapas nos sistemas importantes que oferecem esse recurso, começando pelo e-mail de trabalho e pelo sistema de prontuários."
+          "recomendacao": "Ative a verificação em duas etapas nos sistemas importantes que oferecem esse recurso, começando pelo e-mail de trabalho e pelo sistema de prontuários.",
+          "referencia": "CIS 6.3 e 6.5, NIST CSF PR.AA"
         },
         {
           "id": "acessos-04",
           "texto": "Cada profissional utiliza sua própria conta para acessar os sistemas de trabalho, sem compartilhar o mesmo usuário e senha com colegas?",
+          "explicacao": "Com login compartilhado, não é possível identificar quem acessou o prontuário. Isso dificulta investigar incidentes e responder aos pacientes sobre quem consultou seus dados.",
           "peso": 2,
           "opcoes": [
             {
@@ -174,7 +189,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Crie uma conta individual para cada profissional e evite o compartilhamento de usuários e senhas. Quando uma exceção técnica for necessária, limite e controle seu uso."
+          "recomendacao": "Crie uma conta individual para cada profissional e evite o compartilhamento de usuários e senhas. Quando uma exceção técnica for necessária, limite e controle seu uso.",
+          "referencia": "CIS 5.1, LGPD art. 37"
         }
       ]
     },
@@ -185,6 +201,7 @@
         {
           "id": "dados-01",
           "texto": "A instituição compartilha dados de pacientes somente com destinatários autorizados e por canais aprovados?",
+          "explicacao": "Mandar um laudo para o e-mail errado ou por um aplicativo pessoal já é um vazamento. Dados de saúde são sensíveis pela LGPD e exigem cuidado redobrado.",
           "peso": 3,
           "opcoes": [
             {
@@ -200,11 +217,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Defina os canais permitidos para compartilhar dados e instrua a equipe a confirmar o destinatário e sua autorização antes do envio."
+          "recomendacao": "Defina os canais permitidos para compartilhar dados e instrua a equipe a confirmar o destinatário e sua autorização antes do envio.",
+          "referencia": "LGPD art. 11 e 46, CIS 3.3"
         },
         {
           "id": "dados-02",
           "texto": "A instituição definiu por quanto tempo mantém informações de pacientes e como descarta com segurança as que não precisam mais ser guardadas?",
+          "explicacao": "Guardar dados além do necessário aumenta o que pode vazar. Papel jogado no lixo comum ou um computador doado sem apagar o disco expõem pacientes.",
           "peso": 2,
           "opcoes": [
             {
@@ -220,7 +239,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Documente os prazos de guarda aplicáveis e estabeleça métodos seguros para descartar documentos físicos e arquivos digitais ao fim do período definido."
+          "recomendacao": "Documente os prazos de guarda aplicáveis e estabeleça métodos seguros para descartar documentos físicos e arquivos digitais ao fim do período definido.",
+          "referencia": "LGPD art. 15 e 16, CIS 3.4 e 3.5"
         }
       ]
     },
@@ -231,6 +251,7 @@
         {
           "id": "backup-01",
           "texto": "A instituição realiza cópias de segurança regulares dos dados e sistemas essenciais?",
+          "explicacao": "Sem cópias regulares, uma falha de disco, um erro ou um ataque de sequestro de dados (ransomware) pode apagar de vez prontuários e agendas.",
           "peso": 3,
           "opcoes": [
             {
@@ -246,11 +267,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Defina quais dados e sistemas precisam de cópias de segurança e estabeleça uma frequência de realização adequada à rotina da instituição."
+          "recomendacao": "Defina quais dados e sistemas precisam de cópias de segurança e estabeleça uma frequência de realização adequada à rotina da instituição.",
+          "referencia": "CIS 11.1 e 11.2, NIST CSF PR.DS"
         },
         {
           "id": "backup-02",
           "texto": "A instituição mantém pelo menos uma cópia de segurança em um local separado dos computadores e sistemas usados no dia a dia?",
+          "explicacao": "Um ataque que chega à rede costuma criptografar também os backups ligados a ela. Uma cópia separada é o que permite recomeçar.",
           "peso": 2,
           "opcoes": [
             {
@@ -266,11 +289,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Mantenha pelo menos uma cópia em local separado da rede e dos equipamentos usados no dia a dia, com acesso protegido."
+          "recomendacao": "Mantenha pelo menos uma cópia em local separado da rede e dos equipamentos usados no dia a dia, com acesso protegido.",
+          "referencia": "CIS 11.4"
         },
         {
           "id": "backup-03",
           "texto": "A instituição testa se consegue recuperar os dados a partir das cópias de segurança?",
+          "explicacao": "Um backup só protege quando a equipe confirma que consegue restaurar os arquivos. Muitas instituições só descobrem que a cópia estava incompleta ou corrompida no dia em que precisam dela.",
           "peso": 3,
           "opcoes": [
             {
@@ -286,7 +311,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Teste a recuperação dos dados essenciais a partir das cópias ao menos uma vez por trimestre e registre se deu certo e quanto tempo levou."
+          "recomendacao": "Teste a recuperação dos dados essenciais a partir das cópias ao menos uma vez por trimestre e registre se deu certo e quanto tempo levou.",
+          "referencia": "CIS 11.5, NIST CSF RC.RP"
         }
       ]
     },
@@ -297,6 +323,7 @@
         {
           "id": "protecao-01",
           "texto": "Os computadores usados no atendimento possuem proteção contra programas maliciosos ativada e atualizada?",
+          "explicacao": "A proteção contra programas maliciosos bloqueia vírus e ransomware comuns antes que se espalhem. Desativada ou desatualizada, ela não reconhece as ameaças novas.",
           "peso": 3,
           "opcoes": [
             {
@@ -312,11 +339,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Ative e mantenha atualizada a proteção contra programas maliciosos em todos os computadores usados no atendimento."
+          "recomendacao": "Ative e mantenha atualizada a proteção contra programas maliciosos em todos os computadores usados no atendimento.",
+          "referencia": "CIS 10.1 e 10.2"
         },
         {
           "id": "protecao-02",
           "texto": "A rede Wi-Fi oferecida a pacientes e visitantes é separada da rede usada para acessar prontuários e sistemas internos?",
+          "explicacao": "Na mesma rede, o celular infectado de um visitante consegue enxergar os computadores da recepção e do consultório. Separar as redes impede esse caminho.",
           "peso": 2,
           "opcoes": [
             {
@@ -332,11 +361,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Peça ao responsável técnico ou ao fornecedor da rede que separe a rede de visitantes daquela usada por sistemas e equipamentos internos."
+          "recomendacao": "Peça ao responsável técnico ou ao fornecedor da rede que separe a rede de visitantes daquela usada por sistemas e equipamentos internos.",
+          "referencia": "CIS 12.2, NIST CSF PR.IR"
         },
         {
           "id": "protecao-03",
           "texto": "Notebooks e celulares que acessam dados de pacientes têm senha de bloqueio de tela e armazenamento criptografado, para que os dados fiquem protegidos em caso de perda ou roubo?",
+          "explicacao": "Equipamentos portáteis se perdem e são roubados. Com bloqueio e criptografia, quem encontrar o aparelho não consegue ler os dados dos pacientes.",
           "peso": 3,
           "opcoes": [
             {
@@ -352,7 +383,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Ative o bloqueio automático de tela com senha e a criptografia do armazenamento (como BitLocker, FileVault ou a criptografia nativa do celular) em todos os equipamentos portáteis."
+          "recomendacao": "Ative o bloqueio automático de tela com senha e a criptografia do armazenamento (como BitLocker, FileVault ou a criptografia nativa do celular) em todos os equipamentos portáteis.",
+          "referencia": "CIS 3.6 e 4.3, LGPD art. 46"
         }
       ]
     },
@@ -363,6 +395,7 @@
         {
           "id": "pessoas-fornecedores-01",
           "texto": "Os colaboradores recebem orientação sobre segurança da informação ao ingressar e periodicamente, incluindo como reconhecer mensagens suspeitas?",
+          "explicacao": "E-mails e mensagens falsas são a forma mais comum de invasão. Uma equipe que sabe reconhecê-las e avisa logo evita boa parte dos incidentes.",
           "peso": 2,
           "opcoes": [
             {
@@ -378,11 +411,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Inclua uma orientação inicial e reciclagens periódicas sobre proteção de dados, mensagens suspeitas e comunicação de problemas, registrando quem participou."
+          "recomendacao": "Inclua uma orientação inicial e reciclagens periódicas sobre proteção de dados, mensagens suspeitas e comunicação de problemas, registrando quem participou.",
+          "referencia": "CIS 14.1 e 14.2, NIST CSF PR.AT"
         },
         {
           "id": "pessoas-fornecedores-02",
           "texto": "A instituição mantém uma lista atualizada dos fornecedores que podem acessar seus sistemas ou dados, com um contato interno responsável por cada um?",
+          "explicacao": "Fornecedores de sistema, suporte e laboratório acessam dados de pacientes e também podem ser a porta de entrada de um ataque. Pela LGPD, a instituição responde junto com eles.",
           "peso": 2,
           "opcoes": [
             {
@@ -398,7 +433,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Registre os fornecedores com acesso a sistemas ou dados, o serviço prestado e a pessoa interna responsável, atualizando a lista quando houver mudanças."
+          "recomendacao": "Registre os fornecedores com acesso a sistemas ou dados, o serviço prestado e a pessoa interna responsável, atualizando a lista quando houver mudanças.",
+          "referencia": "CIS 15.1, LGPD art. 39 e 42"
         }
       ]
     },
@@ -409,6 +445,7 @@
         {
           "id": "incidentes-01",
           "texto": "A instituição ou seu suporte técnico verifica regularmente quem acessa os sistemas com dados de pacientes e investiga acessos ou atividades que pareçam fora do normal?",
+          "explicacao": "Acessos indevidos, como um funcionário consultando o prontuário de um conhecido, só são percebidos quando alguém olha o histórico. Sem verificação, o problema pode durar meses.",
           "peso": 2,
           "opcoes": [
             {
@@ -424,11 +461,13 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Combine com o responsável técnico uma rotina para verificar o histórico de acessos aos sistemas importantes e definir como analisar e registrar atividades fora do normal."
+          "recomendacao": "Combine com o responsável técnico uma rotina para verificar o histórico de acessos aos sistemas importantes e definir como analisar e registrar atividades fora do normal.",
+          "referencia": "CIS 8.2, NIST CSF DE.CM"
         },
         {
           "id": "incidentes-02",
           "texto": "Os colaboradores sabem a quem comunicar rapidamente uma suspeita de incidente, como perda de equipamento ou envio indevido de dados?",
+          "explicacao": "Quanto mais cedo um incidente é comunicado, menor o dano. A LGPD também exige avisar a ANPD e os pacientes afetados quando há risco relevante, e isso depende de alguém ficar sabendo a tempo.",
           "peso": 3,
           "opcoes": [
             {
@@ -444,7 +483,8 @@
               "valor": 2
             }
           ],
-          "recomendacao": "Defina um canal simples para comunicar incidentes, com um responsável e um substituto, e informe toda a equipe. Inclua no procedimento a avaliação da comunicação à ANPD e aos pacientes afetados, como prevê a LGPD."
+          "recomendacao": "Defina um canal simples para comunicar incidentes, com um responsável e um substituto, e informe toda a equipe. Inclua no procedimento a avaliação da comunicação à ANPD e aos pacientes afetados, como prevê a LGPD.",
+          "referencia": "CIS 17.2 e 17.3, LGPD art. 48"
         }
       ]
     }
