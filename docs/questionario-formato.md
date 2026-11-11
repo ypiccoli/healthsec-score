@@ -1,6 +1,6 @@
 # Formato do questionário
 
-O questionário inteiro (domínios, perguntas, opções, pesos e recomendações) vive num único arquivo, `src/data/questionario.json`. As telas e o scoring leem dele. Nenhuma pergunta é escrita direto no código.
+O questionário inteiro (domínios, perguntas, explicações, opções, pesos, recomendações e referências) vive num único arquivo, `src/data/questionario.json`. As telas e o scoring leem dele. Nenhuma pergunta é escrita direto no código.
 
 Responsáveis: **Lucas** (arquivo e schema), com **Ygor** (conteúdo de segurança, com base em NIST CSF 2.0, CIS Controls v8 IG1 e LGPD).
 
@@ -18,13 +18,15 @@ Pense no JSON como três tabelas encaixadas: **domínio → pergunta → opção
         {
           "id": "backup-01",
           "texto": "A instituição testa a restauração dos backups?",
+          "explicacao": "Um backup só protege quando a equipe confirma que consegue restaurar os arquivos.",
           "peso": 3,
           "opcoes": [
             { "texto": "Não", "valor": 0 },
             { "texto": "Às vezes", "valor": 1 },
             { "texto": "Sim, com rotina definida", "valor": 2 }
           ],
-          "recomendacao": "Testar a restauração ao menos uma vez por trimestre."
+          "recomendacao": "Testar a restauração ao menos uma vez por trimestre.",
+          "referencia": "CIS 11.5, NIST CSF RC.RP"
         }
       ]
     }
@@ -40,10 +42,12 @@ Exemplo completo, com dados fictícios: [exemplos/questionario.exemplo.json](exe
 |---|---|
 | `dominio.id`, `pergunta.id` | Texto curto, minúsculo, sem acento, com hífen. Único no arquivo. O id da pergunta começa com o id do domínio (`backup-01`). **Depois de publicado, não muda**, porque o arquivo de respostas salvo pelo usuário depende dele. |
 | `nome`, `texto` | Linguagem simples, para gestor sem formação em TI. |
+| `explicacao` | Texto do quadro "Por que isso importa" na tela da pergunta. Uma ou duas frases, com **no máximo 200 caracteres**, dizendo o risco que a pergunta avalia. |
 | `peso` | Inteiro de 1 a 3: 1 = desejável, 2 = importante, 3 = essencial. |
 | `opcoes` | De 2 a 5 opções, em ordem do pior para o melhor. |
 | `valor` | Inteiro a partir de 0. A pior opção vale 0. |
 | `recomendacao` | O que fazer para chegar à melhor opção, numa frase com ação concreta. |
+| `referencia` | Controles e artigos que embasam a pergunta, sem ponto final (ex.: `CIS 11.5, NIST CSF RC.RP`, `LGPD art. 41`). Fica fora do limite da `explicacao`, e a tela decide como exibir. |
 
 ## Schema Zod
 

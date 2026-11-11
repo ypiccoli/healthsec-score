@@ -12,9 +12,11 @@ export const opcaoSchema = z.object({
 export const perguntaSchema = z.object({
   id: idSchema,
   texto: z.string().min(1),
+  explicacao: z.string().min(1).max(200),
   peso: z.number().int().min(1).max(3),
   opcoes: z.array(opcaoSchema).min(2).max(5),
   recomendacao: z.string().min(1),
+  referencia: z.string().min(1),
 });
 
 export const dominioSchema = z.object({
