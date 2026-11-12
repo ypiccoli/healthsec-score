@@ -1,5 +1,3 @@
-src/scoring/index.ts
-
 import type {
   Dominio,
   Pergunta,
