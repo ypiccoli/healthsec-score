@@ -1,4 +1,3 @@
-src/scoring/tipos.ts
 export type Classificacao = 'critico' | 'baixo' | 'medio' | 'alto';
 
 export interface ResultadoDominio {
