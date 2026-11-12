@@ -40,10 +40,11 @@ function validarResposta(
   const indice = respostas[pergunta.id];
 
   if (
-    !Number.isInteger(indice) ||
-    indice < 0 ||
-    indice >= pergunta.opcoes.length
-  ) {
+  indice === undefined ||
+  !Number.isInteger(indice) ||
+  indice < 0 ||
+  indice >= pergunta.opcoes.length
+) {
     throw new Error(
       `Responda à pergunta "${pergunta.id}" antes de calcular o resultado.`,
     );
