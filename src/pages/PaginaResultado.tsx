@@ -1,3 +1,4 @@
+
 import {
   Badge,
   Button,
@@ -11,19 +12,60 @@ import {
   Title,
 } from '@mantine/core';
 import { Cabecalho } from '../components/Cabecalho';
-import { resultadoDemonstracao } from '../data/resultadoDemonstracao';
+import type { Classificacao, ResultadoScoring } from '../scoring/tipos';
 
 interface PaginaResultadoProps {
+  resultado: ResultadoScoring;
   aoRevisar: () => void;
   aoVerRelatorio: () => void;
   aoIrParaInicio: () => void;
 }
 
+function obterNomeClassificacao(classificacao: Classificacao): string {
+  const nomes: Record<Classificacao, string> = {
+    critico: 'Crítico',
+    baixo: 'Baixo',
+    medio: 'Médio',
+    alto: 'Alto',
+  };
+
+  return nomes[classificacao];
+}
+
+function obterCorClassificacao(classificacao: Classificacao): string {
+  const cores: Record<Classificacao, string> = {
+    critico: 'red',
+    baixo: 'orange',
+    medio: 'yellow',
+    alto: 'green',
+  };
+
+  return cores[classificacao];
+}
+
+function obterResumo(classificacao: Classificacao): string {
+  const resumos: Record<Classificacao, string> = {
+    critico:
+      'A avaliação identificou fragilidades importantes. É recomendável priorizar ações corretivas nos controles de segurança.',
+    baixo:
+      'A instituição possui oportunidades importantes de melhoria. Priorize os controles com maior perda de pontuação.',
+    medio:
+      'A instituição apresenta um nível intermediário de maturidade. Algumas práticas precisam ser fortalecidas.',
+    alto:
+      'A instituição apresenta um bom nível de maturidade nos controles avaliados. Mantenha as práticas e revise-as periodicamente.',
+  };
+
+  return resumos[classificacao];
+}
+
 export function PaginaResultado({
+  resultado,
   aoRevisar,
   aoVerRelatorio,
   aoIrParaInicio,
 }: PaginaResultadoProps) {
+  const corGeral = obterCorClassificacao(resultado.classificacaoGeral);
+
   return (
     <div className="pagina">
       <Cabecalho etapaAtual="resultado" aoIrParaInicio={aoIrParaInicio} />
@@ -37,11 +79,16 @@ export function PaginaResultado({
                   size={190}
                   thickness={18}
                   roundCaps
-                  sections={[{ value: resultadoDemonstracao.nota, color: 'yellow.7' }]}
+                  sections={[
+                    {
+                      value: resultado.scoreGeralExibicao,
+                      color: `${corGeral}.7`,
+                    },
+                  ]}
                   label={
                     <div>
                       <Text ta="center" fw={900} fz={52} lh={1}>
-                        {resultadoDemonstracao.nota}
+                        {resultado.scoreGeralExibicao}
                       </Text>
                       <Text ta="center" className="texto-suave">
                         de 100
@@ -52,27 +99,33 @@ export function PaginaResultado({
               </Group>
 
               <Stack gap="md">
-                <Group>
-                  <Title order={1} className="titulo-principal">
-                    {resultadoDemonstracao.instituicao}
-                  </Title>
-                  <span className="faixa-nota">Faixa: {resultadoDemonstracao.faixa}</span>
+                <Title order={1} className="titulo-principal">
+                  Resultado da autoavaliação
+                </Title>
+
+                <Group gap="sm">
+                  <Text fw={700}>Classificação:</Text>
+                  <Badge color={corGeral} size="lg">
+                    {obterNomeClassificacao(resultado.classificacaoGeral)}
+                  </Badge>
                 </Group>
+
                 <Text size="lg" className="texto-suave">
-                  {resultadoDemonstracao.resumo}
+                  {obterResumo(resultado.classificacaoGeral)}
                 </Text>
+
                 <Group gap="xs">
                   <Badge color="red" variant="light">
-                    0-39 Crítico
+                    0–39 Crítico
                   </Badge>
                   <Badge color="orange" variant="light">
-                    40-59 Baixo
+                    40–59 Baixo
                   </Badge>
                   <Badge color="yellow" variant="light">
-                    60-79 Médio
+                    60–79 Médio
                   </Badge>
                   <Badge color="green" variant="light">
-                    80-100 Alto
+                    80–100 Alto
                   </Badge>
                 </Group>
               </Stack>
@@ -84,16 +137,23 @@ export function PaginaResultado({
               <Title order={2} mb="lg">
                 Nota por domínio
               </Title>
+
               <Stack gap="lg">
-                {resultadoDemonstracao.dominios.map((dominio) => (
-                  <div key={dominio.nome} className="linha-dominio">
+                {resultado.dominios.map((dominio) => (
+                  <div key={dominio.dominioId} className="linha-dominio">
                     <Group justify="space-between">
                       <Text>{dominio.nome}</Text>
                       <Text fw={800}>
-                        {dominio.nota} · {dominio.faixa}
+                        {dominio.scoreExibicao} ·{' '}
+                        {obterNomeClassificacao(dominio.classificacao)}
                       </Text>
                     </Group>
-                    <Progress value={dominio.nota} color={dominio.cor} size="sm" />
+
+                    <Progress
+                      value={dominio.scoreExibicao}
+                      color={obterCorClassificacao(dominio.classificacao)}
+                      size="sm"
+                    />
                   </div>
                 ))}
               </Stack>
@@ -101,22 +161,48 @@ export function PaginaResultado({
 
             <Stack gap="md">
               <Title order={2}>O que fazer primeiro</Title>
-              {resultadoDemonstracao.prioridades.map((prioridade, indice) => (
-                <Paper key={prioridade.dominio} className="cartao-prioridade" p="lg" radius="md">
-                  <Stack gap="xs">
-                    <Group gap="sm">
-                      <Badge color="dark">{indice + 1}</Badge>
-                      <Text fw={700} c="orange.8">
-                        {prioridade.dominio}
-                      </Text>
-                    </Group>
-                    <Text fw={800} size="lg">
-                      {prioridade.titulo}
-                    </Text>
-                    <Text className="texto-suave">{prioridade.descricao}</Text>
-                  </Stack>
+
+              {resultado.pontosDeAtencao.length === 0 ? (
+                <Paper className="cartao-prioridade" p="lg" radius="md">
+                  <Text fw={700} c="green.8">
+                    Excelente resultado!
+                  </Text>
+                  <Text className="texto-suave">
+                    Todas as respostas receberam a pontuação máxima. Mantenha
+                    os controles e continue revisando as práticas de segurança.
+                  </Text>
                 </Paper>
-              ))}
+              ) : (
+                resultado.pontosDeAtencao.map((ponto, indice) => (
+                  <Paper
+                    key={ponto.perguntaId}
+                    className="cartao-prioridade"
+                    p="lg"
+                    radius="md"
+                  >
+                    <Stack gap="xs">
+                      <Group gap="sm">
+                        <Badge color="dark">{indice + 1}</Badge>
+                        <Text fw={700} c="orange.8">
+                          {ponto.dominioNome}
+                        </Text>
+                      </Group>
+
+                      <Text fw={800} size="lg">
+                        {ponto.pergunta}
+                      </Text>
+
+                      <Text className="texto-suave">
+                        Recomendação: {ponto.recomendacao}
+                      </Text>
+
+                      <Text size="sm" fw={700}>
+                        Pontos perdidos: {ponto.pontosPerdidos}
+                      </Text>
+                    </Stack>
+                  </Paper>
+                ))
+              )}
             </Stack>
           </div>
 
@@ -124,8 +210,9 @@ export function PaginaResultado({
             <Button variant="outline" size="md" onClick={aoRevisar}>
               Revisar respostas
             </Button>
+
             <Button size="md" onClick={aoVerRelatorio}>
-              Ver relatório e baixar
+              Ver relatório
             </Button>
           </Group>
         </Stack>

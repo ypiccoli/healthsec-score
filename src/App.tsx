@@ -1,3 +1,4 @@
+
 import { Alert, Container } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import dadosDoQuestionario from './data/questionario.json';
@@ -6,11 +7,11 @@ import { PaginaPerfil } from './pages/PaginaPerfil';
 import { PaginaQuestionario } from './pages/PaginaQuestionario';
 import { PaginaRelatorio } from './pages/PaginaRelatorio';
 import { PaginaResultado } from './pages/PaginaResultado';
+import { calcularScoring } from './scoring';
 import { questionarioSchema, type Respostas } from './schema/questionario';
 
 type TelaAtual = 'inicio' | 'perfil' | 'questionario' | 'resultado' | 'relatorio';
 
-// Impede que um arquivo de perguntas inválido chegue até as telas.
 const questionarioValidado = questionarioSchema.safeParse(dadosDoQuestionario);
 
 export function App() {
@@ -88,29 +89,48 @@ export function App() {
   }
 
   if (telaAtual === 'perfil') {
-    return <PaginaPerfil aoVoltar={irParaInicio} aoAvancar={() => setTelaAtual('questionario')} />;
-  }
-
-  if (telaAtual === 'resultado') {
     return (
-      <PaginaResultado
-        aoIrParaInicio={irParaInicio}
-        aoRevisar={() => {
-          setIndiceDaPergunta(0);
-          setTelaAtual('questionario');
-        }}
-        aoVerRelatorio={() => setTelaAtual('relatorio')}
+      <PaginaPerfil
+        aoVoltar={irParaInicio}
+        aoAvancar={() => setTelaAtual('questionario')}
       />
     );
   }
 
-  if (telaAtual === 'relatorio') {
-    return (
-      <PaginaRelatorio
-        aoIrParaInicio={irParaInicio}
-        aoVoltarParaResultado={() => setTelaAtual('resultado')}
-      />
-    );
+  if (telaAtual === 'resultado' || telaAtual === 'relatorio') {
+    try {
+      const resultado = calcularScoring(questionario, respostas);
+
+      if (telaAtual === 'resultado') {
+        return (
+          <PaginaResultado
+            resultado={resultado}
+            aoIrParaInicio={irParaInicio}
+            aoRevisar={() => {
+              setIndiceDaPergunta(0);
+              setTelaAtual('questionario');
+            }}
+            aoVerRelatorio={() => setTelaAtual('relatorio')}
+          />
+        );
+      }
+
+      return (
+        <PaginaRelatorio
+          resultado={resultado}
+          aoIrParaInicio={irParaInicio}
+          aoVoltarParaResultado={() => setTelaAtual('resultado')}
+        />
+      );
+    } catch {
+      return (
+        <Container size="sm" py="xl">
+          <Alert color="red" title="Não foi possível calcular o resultado">
+            Verifique se todas as perguntas foram respondidas e tente novamente.
+          </Alert>
+        </Container>
+      );
+    }
   }
 
   return (
@@ -126,3 +146,4 @@ export function App() {
     />
   );
 }
+
